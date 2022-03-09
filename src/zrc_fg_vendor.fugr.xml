@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>fg vendor</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZRC_FG_VENDORTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZRC_FG_VENDOR</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZVENDOR_AGEING_REP</FUNCNAME>
+     <SHORT_TEXT>FM FOR VENDOR AGEING</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IM_KEY_DATE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SYDATUM</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IM_CATEGORY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>C</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>IT_LIFNR</PARAMETER>
+       <DBSTRUCT>/ACCGO/CAS_S_LIFNR_RANGE</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_BUKRS</PARAMETER>
+       <DBSTRUCT>FMEUF_RANGE_BUKRS</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_OUTPUT</PARAMETER>
+       <DBSTRUCT>ZST_VENDOR</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IM_KEY_DATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>System Date</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IM_CATEGORY</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_LIFNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range structure for vendor</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range for Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_OUTPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Structure for Vendor Ageing</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

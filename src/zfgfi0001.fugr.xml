@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>FG for Payment Details</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGFI0001TOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGFI0001</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFM_FI_CASH_CLEARING</FUNCNAME>
+     <SHORT_TEXT>FM for cash clearing</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>BUKRS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BUKRS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>GJAHR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>GJAHR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>AUGBL</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>AUGBL</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PERIOD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>POPER</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_CONTINUE</PARAMETER>
+       <TYP>C</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>ES_ACDOCA_OFFSET</PARAMETER>
+       <TYP>ZST_ACDOCA</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>GJAHR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fiscal Year</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>AUGBL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Document Number of the Clearing Document</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PERIOD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Posting Period</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_CONTINUE</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ES_ACDOCA_OFFSET</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Structure for ACDOCA</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFM_FI_DIRECT_CASH_FLOW</FUNCNAME>
+     <SHORT_TEXT>FM for direct cash flow</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>COMPANY_CODE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BUKRS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>HOUSE_BANK</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>HBKID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ACCOUNT_ID</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>HKTID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FISCAL_YEAR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>GJAHR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PERIOD</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>POPER</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_CASHFLOW</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZTT_CASHFLOW</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>COMPANY_CODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>HOUSE_BANK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Short key for a house bank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ACCOUNT_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ID for account details</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FISCAL_YEAR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fiscal Year</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PERIOD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Posting Period</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_CASHFLOW</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>TT for Cashflow</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFM_FI_INVOICE_LISTING</FUNCNAME>
+     <SHORT_TEXT>fm for invoice listing</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IM_STATUS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR1</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>IT_WERKS</PARAMETER>
+       <DBSTRUCT>PLMIFO_TS_PLANT_RANGE</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_EBELN</PARAMETER>
+       <DBSTRUCT>ZFAGL_S_RANGE_EBELN</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_LIFNR</PARAMETER>
+       <DBSTRUCT>/ACCGO/CAS_S_LIFNR_RANGE</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_KEY_DATE</PARAMETER>
+       <DBSTRUCT>EMMA_DATE_RANGE</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ANLN1</PARAMETER>
+       <DBSTRUCT>ZFAGL_S_RANGE_ASSET</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_OUTPUT</PARAMETER>
+       <DBSTRUCT>ZST_INVOICE_LISTING</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IM_STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Flag</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_WERKS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range Structure for Plant</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_EBELN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range Structure EBELN</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_LIFNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range structure for vendor</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_KEY_DATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range Structure for Date</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ANLN1</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range Structure Asset</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_OUTPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Structure for Vendor Ageing</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFM_FI_PAYMENT_DETAILS</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>FM for Payment Details</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>COMPANYCODE</PARAMETER>
+       <TYP>ZFIST_BUKRS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FISCALYEAR</PARAMETER>
+       <TYP>GJAHR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>POSTINGDATE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZFIST_DATES</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>IT_PAYMENT_DETAILS</PARAMETER>
+       <TYP>ZFITT0001</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>COMPANYCODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FISCALYEAR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fiscal Year</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>POSTINGDATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Posting Date in the Document</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_PAYMENT_DETAILS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Type for Payment Details</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFM_FI_PAYMENT_DETAILS2</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>FM for Payment Details</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>COMPANY_CODE</PARAMETER>
+       <TYP>BUKRS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FISCAL_YEAR</PARAMETER>
+       <TYP>GJAHR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>POSTING_DATE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BUDAT</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>IT_PAYMENT_DETAILS</PARAMETER>
+       <TYP>ZFITT0001</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>COMPANY_CODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FISCAL_YEAR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fiscal Year</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>POSTING_DATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Posting Date in the Document</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_PAYMENT_DETAILS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Type for Payment Details</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
